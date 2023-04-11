@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swing Animation</title>
+    <style>
+        @font-face {
+            font-family: "Typeface Six Seven OT W03 Seven";
+            src: url("./font/ec958d504ef52557e9414a9edda1d741.woff2") format("woff2");
+        }
+
+        body {
+            font-family: "Typeface Six Seven OT W03 Seven" !important;
+        }
+
+        div {
+            font-size: 10vw;
+            text-align: center;
+        }
+
+        .demo span {
+            display: inline-block;
+        }
+
+        .swing-forward-backwards {
+            --perspective: 1950px;
+            --rotate: 35deg;
+            --time: 10s;
+            animation: swing-forward-backwards var(--time) ease-in-out infinite;
+        }
+
+        @keyframes swing-forward-backwards {
+
+            0%,
+            100% {
+                transform-origin: top;
+                transform: perspective(var(--perspective))rotatex(var(--rotate));
+            }
+
+            50% {
+                transform: perspective(var(--perspective))rotatex(calc(var(--rotate) * -1));
+            }
+        }
+
+        .swing-left-right {
+            --swing-left-right: 6deg;
+            position: relative;
+            display: inline-block;
+            transform-origin: top;
+            animation: swing-left-right 6s ease-in-out infinite;
+        }
+
+        @keyframes swing-left-right {
+
+            0%,
+            100% {
+                transform: rotate(calc(var(--swing-left-right) * -1));
+            }
+
+            50% {
+                transform: rotate(var(--swing-left-right));
+            }
+        }
+        alfabet {
+            display: block;
+            font-size: 4vw;
+            padding-left: 6vw;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Font: Typeface Six Seven OT W03 Seven</h1>
+    <ALFABET>
+        abcdefghijklmnopqrstuvwxyz<br>
+        ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+        0123456789<br>
+    </ALFABET>
+    <h1>Animation swing-forward-backwards</h1>
+    <div class="demo swing-forward-backwards">LOS</div>
+    <div class="demo"><span>L</span><span>O</span><span class="swing-forward-backwards">S</span></div>
+    <h1>Animation swing-left-right</h1>
+    <div class="demo"><span>L</span><span>O</span><span class="swing-left-right">S</span></div>
+
+</body>
+
+</html>
